@@ -2,6 +2,7 @@ const Product = require('./Product');
 const Category = require('./Category');
 const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
+const sequelize = require('../config/connection');
 
 Category.hasOne(Product, {
   foreignKey: 'category_id',
@@ -12,8 +13,6 @@ Category.hasMany(Product, {
   foreignKey: 'category_id',
   onDelete: 'CASCADE',
 });
-
-ProductTag = sequelize.define('product_tag', {});
 
 Product.belongsToMany(Tag, { through: ProductTag });
 Tag.belongsToMany(Product, { through: ProductTag });
