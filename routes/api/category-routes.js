@@ -25,7 +25,6 @@ router.get('/:id', async (req, res) => {
 
     res.status(200).json(await categoryData);
   } catch (err) {
-    console.log(err)
     res.status(500).json(err);
   }
 });
